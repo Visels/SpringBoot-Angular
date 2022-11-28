@@ -34,7 +34,7 @@ public class EmployeeService {
         return employeeRepo.save(employee);
     }
 
-    public Employee findEmployeeById(Long id) throws Throwable {
+    public Employee findEmployeeById(Long id)  {
         return employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("User was not found!"));
     }
 
