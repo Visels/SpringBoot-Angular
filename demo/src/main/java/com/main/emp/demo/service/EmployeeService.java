@@ -1,5 +1,6 @@
 package com.main.emp.demo.service;
 
+import com.main.emp.demo.exception.UserNotFoundException;
 import com.main.emp.demo.model.Employee;
 import com.main.emp.demo.repo.EmployeeRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +34,9 @@ public class EmployeeService {
         return employeeRepo.save(employee);
     }
 
-//    public Employee findEmployeeById(Long id){
-//        employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("User" + id + " was not found!"));
-//    }
+    public Employee findEmployeeById(Long id) throws Throwable {
+        return employeeRepo.findEmployeeById(id).orElseThrow(() -> new UserNotFoundException("User was not found!"));
+    }
 
     public void deleteEmployee(Long id) {
         employeeRepo.deleteEmployeeById(id);
