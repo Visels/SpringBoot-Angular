@@ -21,7 +21,7 @@ public class EmployeeResource {
 
 
 
-    @GetMapping
+    @GetMapping("/all")
     public ResponseEntity<List<Employee>>  getAllEmployees(){
         List<Employee> employees = employeeService.findAllEmployees();
         return new ResponseEntity<>(employees, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class EmployeeResource {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteEmployee(@PathVariable("id") Long id){
          employeeService.deleteEmployee(id);
-         return new ResponseEntity<>(HttpStatus.OK); 
+         return new ResponseEntity<>(HttpStatus.OK);
     }
 
 }
